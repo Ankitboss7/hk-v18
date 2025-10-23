@@ -29,9 +29,10 @@ intents.members = True
 
 # Disable the default help command
 bot = commands.Bot(command_prefix='.', intents=intents, help_command=None)
+to = ""
 
 # Main admin user ID
-MAIN_ADMIN_ID = 1295737579840340032
+MAIN_ADMIN_ID = 1405866008127864852
 
 # VPS User Role ID
 VPS_USER_ROLE_ID = None
@@ -124,7 +125,7 @@ def create_embed(title, description="", color=0x1a1a1a, fields=None):
         color=color
     )
 
-    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1424364952730472528/1430445158809469009/standard_1.gif?ex=68f9cd5e&is=68f87bde&hm=1638a802c6a54865119402f784240a319dce77d694f8f5679308a43b1526c726&")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1417915306227142746/1430629663645892820/IMG_20251020_132544.jpg?ex=68fa7933&is=68f927b3&hm=667c0819debf7e463f1575557a5cc43bcc1446e1df209e4e099f6c25e73b1de5&7d694f8f5679308a43b1526c726&")
 
     if fields:
         for field in fields:
@@ -134,8 +135,8 @@ def create_embed(title, description="", color=0x1a1a1a, fields=None):
                 inline=field.get("inline", False)
             )
 
-    embed.set_footer(text=f"CurlNode VPS Manager • {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-                    icon_url="https://cdn.discordapp.com/attachments/1424364952730472528/1430445158809469009/standard_1.gif?ex=68f9cd5e&is=68f87bde&hm=1638a802c6a54865119402f784240a319dce77d694f8f5679308a43b1526c726&")
+    embed.set_footer(text=f"Gvm Panel VPS Manager • {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+                    icon_url="https://cdn.discordapp.com/attachments/1417915306227142746/1430629663645892820/IMG_20251020_132544.jpg?ex=68fa7933&is=68f927b3&hm=667c0819debf7e463f1575557a5cc43bcc1446e1df209e4e099f6c25e73b1de5&526c726&")
 
     return embed
 
@@ -266,7 +267,7 @@ cpu_thread.start()
 @bot.event
 async def on_ready():
     logger.info(f'{bot.user} has connected to Discord!')
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=" CurlNode  VPS Manager"))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gvm Panel  VPS Manager | .help"))
     logger.info("Bot is ready! No loops running - clean start.")
 
 @bot.event
@@ -309,7 +310,7 @@ async def create_vps(ctx, user: discord.Member, ram: int, cpu: int):
             "container_name": container_name,
             "ram": f"{ram}GB",
             "cpu": str(cpu),
-            "storage": "10GB",
+            "storage": "120GB",
             "status": "running",
             "created_at": datetime.now().isoformat(),
             "shared_with": []
@@ -1432,4 +1433,4 @@ async def info_alias(ctx):
 # Run the bot with your token
 if __name__ == "__main__":
     token = "duscord-bit-tien"
-    bot.run('to')
+    bot.run(to)
